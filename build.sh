@@ -1,0 +1,2 @@
+git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && git pull && ./emsdk install latest && ./emsdk activate latest && source ./emsdk_env.sh
+mkdir build-em && cd build-em && emcmake cmake .. && make -j && cp ./bin/libtalk.worker.js ./bin/talk.wasm/libtalk.worker.js && cd ..

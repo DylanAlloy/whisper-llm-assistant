@@ -1,10 +1,24 @@
-# whisper.cpp
+# whisper-llm-assistant
 
-[![Actions Status](https://github.com/ggerganov/whisper.cpp/workflows/CI/badge.svg)](https://github.com/ggerganov/whisper.cpp/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![npm](https://img.shields.io/npm/v/whisper.cpp.svg)](https://www.npmjs.com/package/whisper.cpp/)
 
-Stable: [v1.1.1](https://github.com/ggerganov/whisper.cpp/releases/tag/v1.1.1) / [Roadmap | F.A.Q.](https://github.com/ggerganov/whisper.cpp/discussions/126)
+## DylanAlloy revisions
+
+### 1️⃣ Real-time data feeds
+
+  You can plug anything into the short-term knowledge of the model using the prompt & good data sources and it will become a specific "expert" in a domain. 
+
+![You can teach it anything](./kung-fu.gif)
+
+### 2️⃣ GPT-3 API 
+
+  It's not locally processed of course which defeats the philosophy of the original project but the goal is to interact with more models over time which are processed locally.
+
+### 3️⃣ Advanced prompting
+
+  This is largely to-do 🚧 but will be incorporating advanced prompts for specific use-cases such as concise question-answering, hardware debugging, telemetry data summarization, etc.
+
+--- 
 
 High-performance inference of [OpenAI's Whisper](https://github.com/openai/whisper) automatic speech recognition (ASR) model:
 
@@ -16,17 +30,17 @@ High-performance inference of [OpenAI's Whisper](https://github.com/openai/whisp
 - Low memory usage (Flash Attention + Flash Forward)
 - Zero memory allocations at runtime
 - Runs on the CPU
-- [C-style API](https://github.com/ggerganov/whisper.cpp/blob/master/whisper.h)
+- [C-style API](https://github.com/DylanAlloy/whisper-llm-assistant/blob/master/whisper.h)
 
 Supported platforms:
 
 - [x] Mac OS (Intel and Arm)
 - [x] [iOS](examples/whisper.objc)
 - [x] [Android](examples/whisper.android)
-- [x] Linux / [FreeBSD](https://github.com/ggerganov/whisper.cpp/issues/56#issuecomment-1350920264)
+- [x] Linux / [FreeBSD](https://github.com/DylanAlloy/whisper-llm-assistant/issues/56#issuecomment-1350920264)
 - [x] [WebAssembly](examples/whisper.wasm)
-- [x] Windows ([MSVC](https://github.com/ggerganov/whisper.cpp/blob/master/.github/workflows/build.yml#L117-L144) and [MinGW](https://github.com/ggerganov/whisper.cpp/issues/168)]
-- [x] [Raspberry Pi](https://github.com/ggerganov/whisper.cpp/discussions/166)
+- [x] Windows ([MSVC](https://github.com/DylanAlloy/whisper-llm-assistant/blob/master/.github/workflows/build.yml#L117-L144) and [MinGW](https://github.com/DylanAlloy/whisper-llm-assistant/issues/168)]
+- [x] [Raspberry Pi](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/166)
 
 The entire implementation of the model is contained in 2 source files:
 
@@ -303,7 +317,7 @@ whisper_print_timings:    total time = 33686.27 ms
 
 This is a naive example of performing real-time inference on audio from your microphone.
 The [stream](examples/stream) tool samples the audio every half a second and runs the transcription continously.
-More info is available in [issue #10](https://github.com/ggerganov/whisper.cpp/issues/10).
+More info is available in [issue #10](https://github.com/DylanAlloy/whisper-llm-assistant/issues/10).
 
 ```java
 make stream
@@ -428,7 +442,7 @@ In order to have an objective comparison of the performance of the inference acr
 use the [bench](examples/bench) tool. The tool simply runs the Encoder part of the model and prints how much time it
 took to execute it. The results are summarized in the following Github issue:
 
-[Benchmark results](https://github.com/ggerganov/whisper.cpp/issues/89)
+[Benchmark results](https://github.com/DylanAlloy/whisper-llm-assistant/issues/89)
 
 ## ggml format
 
@@ -448,13 +462,13 @@ or manually from here:
 For more details, see the conversion script [models/convert-pt-to-ggml.py](models/convert-pt-to-ggml.py) or the README
 in [models](models).
 
-## [Bindings](https://github.com/ggerganov/whisper.cpp/discussions/categories/bindings)
+## [Bindings](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/categories/bindings)
 
-- [X] Rust: [tazz4843/whisper-rs](https://github.com/tazz4843/whisper-rs) | [#310](https://github.com/ggerganov/whisper.cpp/discussions/310)
-- [X] Javascript: [bindings/javascript](bindings/javascript) | [#309](https://github.com/ggerganov/whisper.cpp/discussions/309)
-- [X] Go: [bindings/go](bindings/go) | [#312](https://github.com/ggerganov/whisper.cpp/discussions/312)
-- [X] Objective-C / Swift: [ggerganov/whisper.spm](https://github.com/ggerganov/whisper.spm) | [#313](https://github.com/ggerganov/whisper.cpp/discussions/313)
-- [ ] Python: soon | [WIP](https://github.com/ggerganov/whisper.cpp/issues/9)
+- [X] Rust: [tazz4843/whisper-rs](https://github.com/tazz4843/whisper-rs) | [#310](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/310)
+- [X] Javascript: [bindings/javascript](bindings/javascript) | [#309](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/309)
+- [X] Go: [bindings/go](bindings/go) | [#312](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/312)
+- [X] Objective-C / Swift: [ggerganov/whisper.spm](https://github.com/ggerganov/whisper.spm) | [#313](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/313)
+- [ ] Python: soon | [WIP](https://github.com/DylanAlloy/whisper-llm-assistant/issues/9)
 
 ## Examples
 
@@ -473,12 +487,12 @@ Some of the examples are even ported to run in the browser using WebAssembly. Ch
 | [whisper.android](examples/whisper.android) | | Android mobile application using whisper.cpp |
 | [whisper.nvim](examples/whisper.nvim) | | Speech-to-text plugin for Neovim |
 | [generate-karaoke.sh](examples/generate-karaoke.sh) | | Helper script to easily [generate a karaoke video](https://youtu.be/uj7hVta4blM) of raw audio capture |
-| [livestream.sh](examples/livestream.sh) | | [Livestream audio transcription](https://github.com/ggerganov/whisper.cpp/issues/185) |
+| [livestream.sh](examples/livestream.sh) | | [Livestream audio transcription](https://github.com/DylanAlloy/whisper-llm-assistant/issues/185) |
 | [yt-wsp.sh](examples/yt-wsp.sh) | | Download + transcribe and/or translate any VOD [(original)](https://gist.github.com/DaniruKun/96f763ec1a037cc92fe1a059b643b818) |
 
-## [Discussions](https://github.com/ggerganov/whisper.cpp/discussions)
+## [Discussions](https://github.com/DylanAlloy/whisper-llm-assistant/discussions)
 
 If you have any kind of feedback about this project feel free to use the Discussions section and open a new topic.
-You can use the [Show and tell](https://github.com/ggerganov/whisper.cpp/discussions/categories/show-and-tell) category
+You can use the [Show and tell](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/categories/show-and-tell) category
 to share your own projects that use `whisper.cpp`. If you have a question, make sure to check the
-[Frequently asked questions (#126)](https://github.com/ggerganov/whisper.cpp/discussions/126) discussion.
+[Frequently asked questions (#126)](https://github.com/DylanAlloy/whisper-llm-assistant/discussions/126) discussion.
